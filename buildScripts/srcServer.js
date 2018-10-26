@@ -1,25 +1,31 @@
-var express = require('express');
-var path = require('path');
-var open = require('open');
-var chalk = require('chalk');
-var debug = require('debug')('app:src'); // use set DEBUG=app:* & node .\buildScripts\srcServer.js tu run on debug mode
+const express = require('express');
+const path = require('path');
+const open = require('open');
+const chalk = require('chalk');
+const debug = require('debug')('app:src');
+const morgan = require('morgan');
 
-var port = 3000;
-var app = express();
-
+const port = 3000;
+const app = express();
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '../src/')));
+app.set('views', '../src/views');
+app.set('view engine', 'ejs');
+
+app.get('/Challenge', function(req,res) {
+    res.sendFile(path.join(__dirname, '../src/index.html'));
+});
 
 app.get('/', function(req,res) {
-    res.sendFile(path.join(__dirname, '../src/index.html'));
+    res.render('index', {list: ['a', 'b'], title: 'My App'});
 });
 
 app.listen(port, function(err){
     if(err) {
-        console.log(err);
+        debug(err);
     } else {
-        open('http://localhost:' + port);
+        //open(`http://localhost:${port}/`); // opens browser automaticaly
         debug(`Listening on port ${chalk.green(port)}`);
     }
 })
