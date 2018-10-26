@@ -1,3 +1,4 @@
 var chalk = require('chalk');
+var debug = require('debug')('app:msg');
 
-console.log(chalk.green('Starting app in dev mode...'));
+debug(chalk.green('Starting app in dev mode...'));
