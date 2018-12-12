@@ -1,0 +1,32 @@
+body{
+	text-align: center;
+	background-image: url("http://www.pptback.com/uploads/green-world-map-backgrounds-powerpoint.jpg"), 
+}
+
+
+#mapid { 
+		 height:550px;
+		 width: 1200px;}
+h1{
+	text-align: center;
+	font-family: 'Amatic SC', cursive;
+	font: 26px;
+}
+
+.detailsHeader {
+	color: black;
+	font-family: "PT Sans", Corbel, sans-serif;
+	font-size: 24px;
+}
+
+.forecastHeader{
+	color: black;
+	font-family: "PT Sans", Corbel, sans-serif;
+	font-size: 21px;
+}
+
+.forecastParagraph{
+	color: black;
+	font-family: "PT Sans", Corbel, sans-serif;
+	font-size: 18px;
+}
