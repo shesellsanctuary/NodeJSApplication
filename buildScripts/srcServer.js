@@ -21,12 +21,13 @@ app.get('/', function(req,res) {
     res.render('index', {list: ['a', 'b'], title: 'My App'});
 });
 
-app.listen(port, function(err){
+app.listen(port, function (err) {
     if(err) {
         debug(err);
     } else {
-        //open(`http://localhost:${port}/`); // opens browser automaticaly
-        debug(`Listening on port ${chalk.green(port)}`);
+        // open( `http://localhost:${port}/`); // opens browser automaticaly
+        debug( `Listening on port ${chalk.green(port)}` );
     }
 })
+
 
