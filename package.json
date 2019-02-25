@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prestart": "node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src",
-    "open:src": "set DEBUG=app:* & nodemon buildScripts/srcServer.js",
+    "start": "npm-run-all --parallel open:src",
+    "open:src": "set DEBUG=app,app:* & nodemon buildScripts/srcServer.js",
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all --parallel open:src localtunnel",

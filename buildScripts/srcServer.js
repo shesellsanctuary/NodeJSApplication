@@ -10,24 +10,24 @@ const app = express();
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '../src/')));
-app.set('views', '../src/views');
-app.set('view engine', 'ejs');
+app.set('views', './src/views');
+// app.set('view engine', 'ejs');
 
-app.get('/Challenge', function(req,res) {
-    res.sendFile(path.join(__dirname, '../src/index.html'));
+app.get('/', function (req, res) {
+  // res.render('index', { list: ['a', 'b'], title: 'My App' });
+  res.sendFile(path.join(__dirname, '../src/views/index.html'));
+
 });
 
-app.get('/', function(req,res) {
-    res.render('index', {list: ['a', 'b'], title: 'My App'});
+app.get('/Challenge', function (req, res) {
+  res.sendFile(path.join(__dirname, '../src/challenge/index.html'));
 });
 
 app.listen(port, function (err) {
-    if(err) {
-        debug(err);
-    } else {
-        // open( `http://localhost:${port}/`); // opens browser automaticaly
-        debug( `Listening on port ${chalk.green(port)}` );
-    }
-})
-
-
+  if (err) {
+    debug(err);
+  } else {
+    // open( `http://localhost:${port}/`); // opens browser automaticaly
+    debug(`Listening on port ${chalk.green(port)}`);
+  }
+});
