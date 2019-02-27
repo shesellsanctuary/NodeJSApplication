@@ -20,6 +20,7 @@
   "author": "Emily Calvet",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "whatwg-fetch": "3.0.0"
   },

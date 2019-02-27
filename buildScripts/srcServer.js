@@ -4,24 +4,22 @@ const open = require('open');
 const chalk = require('chalk');
 const debug = require('debug')('app:src');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const router = require('../src/routes/router.js');
+const authRouter = require('../src/routes/authRoutes.js');
 
 const port = 3000;
 const app = express();
 
 app.use(morgan('tiny'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../src/')));
 app.set('views', './src/views');
 // app.set('view engine', 'ejs');
 
-app.get('/', function (req, res) {
-  // res.render('index', { list: ['a', 'b'], title: 'My App' });
-  res.sendFile(path.join(__dirname, '../src/views/index.html'));
-
-});
-
-app.get('/Challenge', function (req, res) {
-  res.sendFile(path.join(__dirname, '../src/challenge/index.html'));
-});
+app.use('/', router);
+app.use('/auth', authRouter);
 
 app.listen(port, function (err) {
   if (err) {
