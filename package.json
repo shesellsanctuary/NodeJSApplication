@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "prestart": "node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel open:src",
+    "start": "npm run open:src",
     "open:src": "set DEBUG=app,app:* & nodemon buildScripts/srcServer.js",
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000",
-    "share": "npm-run-all --parallel open:src localtunnel",
+    "share": "npm run open:src && npm run localtunnel",
     "lint": "eslint buildScripts/srcServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,6 +28,7 @@
     "hoek": "^4.2.1",
     "lodash": "^4.17.11",
     "mime": "^1.4.1",
+    "mssql": "^4.3.2",
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {

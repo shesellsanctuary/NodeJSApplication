@@ -27,7 +27,7 @@ var esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/
 // Add layer
 mymap.addLayer(esriWorldImagery);
 // FIELDS DETAILS
-function showDetails (feature, layer) {
+function showDetails(feature, layer) {
 
   // Get bounds of polygon
   var bounds = layer.getBounds();
@@ -83,12 +83,12 @@ L.geoJson(Fields, {
   // Color polygon
   style: function (feature) {
     switch (feature.properties.crop) {
-      case 'corn': return { color: "#FFF400" };
-      case 'potato': return { color: "#C7007D" };
-      case 'wheat': return { color: "#FFC600" };
-      case 'tomato': return { color: "#FF0000" };
-      case 'orange': return { color: "#FF7400" };
-      case 'onion': return { color: "#8C04A8" };
+      case 'corn': return { color: '#FFF400' };
+      case 'potato': return { color: '#C7007D' };
+      case 'wheat': return { color: '#FFC600' };
+      case 'tomato': return { color: '#FF0000' };
+      case 'orange': return { color: '#FF7400' };
+      case 'onion': return { color: '#8C04A8' };
     }
   },
 
